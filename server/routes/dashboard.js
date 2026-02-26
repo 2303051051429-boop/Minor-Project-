@@ -51,6 +51,7 @@ router.get('/metrics', auth, async (req, res) => {
       systemHealth: 'online',
     });
   } catch (error) {
+    console.error('Metrics error:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -65,6 +66,7 @@ router.get('/recent', auth, requireRole('admin'), async (req, res) => {
 
     res.json(items);
   } catch (error) {
+    console.error('Recent reports error:', error.message);
     res.status(500).json({ message: 'Server error' });
   }
 });

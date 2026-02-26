@@ -40,6 +40,7 @@ router.post(
 
       res.status(201).json({ token, user });
     } catch (error) {
+      console.error('Register error:', error.message);
       res.status(500).json({ message: 'Server error' });
     }
   }
@@ -73,6 +74,7 @@ router.post(
 
       res.json({ token, user });
     } catch (error) {
+      console.error('Login error:', error.message);
       res.status(500).json({ message: 'Server error' });
     }
   }

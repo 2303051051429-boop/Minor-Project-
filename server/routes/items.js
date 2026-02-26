@@ -85,6 +85,7 @@ router.get(
         },
       });
     } catch (error) {
+      console.error('List items error:', error.message);
       res.status(500).json({ message: 'Server error' });
     }
   }
@@ -120,6 +121,7 @@ router.post(
       const populated = await item.populate('reportedBy', 'name email');
       res.status(201).json(populated);
     } catch (error) {
+      console.error('Create item error:', error.message);
       res.status(500).json({ message: 'Server error' });
     }
   }
@@ -144,6 +146,7 @@ router.patch(
 
       res.json(item);
     } catch (error) {
+      console.error('Resolve item error:', error.message);
       res.status(500).json({ message: 'Server error' });
     }
   }
